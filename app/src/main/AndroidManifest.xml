@@ -17,5 +17,22 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".AutofillAuthActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".SifreAutofillService"
+            android:exported="true"
+            android:label="Şifre Kasası"
+            android:permission="android.permission.BIND_AUTOFILL_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.autofill.AutofillService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.autofill"
+                android:resource="@xml/autofill_config" />
+        </service>
+
     </application>
 </manifest>
